@@ -620,7 +620,7 @@ String literals are created using double quotes. They include
 a null terminator unless there's not enough space.
 ```{.c code-line-numbers=|1|2|}
 char s1[3] = "ab"; // is this a string?
-char s2[3] = "abc" // is this a string?
+char s2[3] = "abc"; // is this a string?
 ```
 ::::
 :::
