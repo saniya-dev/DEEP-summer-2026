@@ -41,6 +41,17 @@ Expo is also a framework, but its focus is on:
 - Sharing code between platforms (e.g. Android and iOS)
 - Providing a simulation environment
 
+## TypeScript
+TypeScript is JavaScript but with types (like in C).
+
+<br>
+
+Files ending in `.tsx` are TypeScript files.
+
+<br>
+
+React Native uses TypeScript by default.
+
 ## Getting Started
 
 In a terminal:
@@ -69,7 +80,7 @@ Components are like lego pieces that you can combine to build a mobile app.
 
 <br>
 
-The [root]{.highlight-red} component is the `App` function by default.
+The [root]{.highlight-red} component is the `App` function by default or the `index.js` file.
 
 <br>
 
@@ -83,11 +94,15 @@ go over the project folder
 
 Create components using HTML and other components.
 
-```{.jsx filename="App.js" code-line-numbers=1-7|9-17}
-function Greeting({name}) { // name is a prop (aka parameter)
+```{.jsx filename="index.tsx" code-line-numbers=3-11|13-21}
+import { Text, TouchableOpacity, View } from "react-native";
+
+function Greeting({ name }: { name: string }) {
+  // name is a prop (aka parameter)
   return (
+    // Curly braces interpolate the value of `name` into the text
     <View>
-      <Text>Hello, {name}!</Text> // Curly braces interpolate the value of `name` into the text
+      <Text>Hello, {name}!</Text>
     </View>
   );
 }
@@ -111,11 +126,13 @@ explain props
 
 We can then use this component in our `App` component.
 
-```{.jsx filename="App.js" code-line-numbers=9-17}
-function Greeting({name}) { // name is a prop (aka parameter)
+```{.jsx filename="index.tsx" code-line-numbers=11-21}
+function Greeting({ name }: { name: string }) {
+
   return (
+    // Curly braces interpolate the value of `name` into the text
     <View>
-      <Text>Hello, {name}!</Text> // Curly braces interpolate the value of `name` into the text
+      <Text>Hello, {name}!</Text>
     </View>
   );
 }
@@ -148,11 +165,13 @@ React Native provides a set of built-in components that you are encouraged to us
 
 Create a `StyleSheet` object to define CSS-like styles.
 
-```{.jsx filename="App.js" code-line-numbers=19-50|23-28|1-17}
-function Greeting({name}) { // name is a prop (aka parameter)
+```{.jsx filename="index.tsx" code-line-numbers=21-52|25-30|3-19}
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+function Greeting({ name }: { name: string }) {
   return (
     <View>
-      <Text>Hello, {name}!</Text> // Curly braces interpolate the value of `name` into the text
+      <Text>Hello, {name}!</Text>
     </View>
   );
 }
@@ -205,11 +224,13 @@ const styles = StyleSheet.create({
 
 Apply the styles using the `style` prop.
 
-```{.jsx filename="App.js" code-line-numbers=1-17}
-function Greeting({name}) { // name is a prop (aka parameter)
+```{.jsx filename="index.tsx" code-line-numbers=3-19}
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+function Greeting({ name }: { name: string }) {
   return (
     <View style={styles.greetingContainer}>
-      <Text style={styles.greetingText}>Hello, {name}!</Text> // Curly braces interpolate the value of `name` into the text
+      <Text style={styles.greetingText}>Hello, {name}!</Text>
     </View>
   );
 }
@@ -268,7 +289,7 @@ that's all we need for a static app
 
 State lets a component “remember” information like user input (i.e. a variable for a component)
 
-```{.jsx filename="CounterApp.js" code-line-numbers=|6-7|11|16}
+```{.jsx filename="CounterApp.tsx" code-line-numbers=|6-7|11|16}
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
@@ -354,82 +375,92 @@ NOTE: there is no "integer" type, instead it's called "number" in typescript.
 - bar means or
 :::
 
-## Effects
+## Component Logic
 
-Logic inside components:
+Rendering code
 
-- Rendering code
-    - "pure" calculations, predictable results
-- Event handlers
-    - functions that *do* things, unpredictable, triggered by events
+- "pure" calculations, predictable results
+
+Event handlers
+
+- functions that *do* things, unpredictable, triggered by events (e.g. user input)
 
 ::: {.fragment .fade-in}
-- Effects
-    - a side effect caused by rendering
+Effects
+
+- a side effect caused by rendering (i.e. after rendering, what needs to be updated?)
 :::
 
 ## Effects
 
 React resolves effects after rendering the page or a specific dependency.
 
-```{.jsx filename="DataFetcher.js" code-line-numbers=|5-7|35-40|9-33|35|42|48-52}
-import React, { useState, useEffect } from 'react';
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
+```{.jsx filename="DataFetcher.tsx" code-line-numbers=|5-7|9-39|}
+import { useEffect, useState } from "react";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
 const DataFetcher = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+	const [data, setData] = useState<string | null>(null);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    // This runs after component mounts
-    console.log('Component mounted - fetching data');
+	useEffect(() => {
+		// This runs after component mounts
+		console.log("Component mounted - fetching data");
 
-    const fetchData = async () => {
-      try {
-        // Simulating API call
-        const response = await new Promise((resolve) =>
-          setTimeout(() => resolve({ message: 'Hello from API!' }), 2000)
-        );
-        setData(response);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+		const fetchData = async () => {
+			try {
+				// Simulating API call
+				const response: { message: string } = await new Promise(
+					(resolve) =>
+						setTimeout(
+							() => resolve({ message: "Hello from API!" }),
+							2000,
+						),
+				);
+				setData(response.message);
+			} catch (err: any) {
+				setError(err.message);
+			} finally {
+				setLoading(false);
+			}
+		};
 
-    fetchData();
+		fetchData();
 
-    // Cleanup function (runs before unmount or before next effect)
-    return () => {
-      console.log('Cleanup - component unmounting or dependencies changed');
-    };
-  }, []); // Empty array = runs only once on mount, add dependencies here if needed
+		// Cleanup function (runs before unmount or before next effect)
+		return () => {
+			console.log(
+				"Cleanup - component unmounting or dependencies changed",
+			);
+		};
+	}, []); // Empty array = runs only once on mount, add dependencies here if needed
 
-  if (loading) return (
-    <View style={styles.center}>
-      <ActivityIndicator size="large" color="#007AFF" />
-      <Text>Loading...</Text>
-    </View>
-  );
+	if (loading)
+		return (
+			<View style={styles.center}>
+				<ActivityIndicator size="large" color="#007AFF" />
+				<Text>Loading...</Text>
+			</View>
+		);
 
-  if (error) return (
-    <View style={styles.center}>
-      <Text style={styles.error}>Error: {error}</Text>
-    </View>
-  );
+	if (error)
+		return (
+			<View style={styles.center}>
+				<Text style={styles.error}>Error: {error}</Text>
+			</View>
+		);
 
-  return (
-    <View style={styles.center}>
-      <Text>{data?.message}</Text>
-    </View>
-  );
+	return (
+		<View style={styles.center}>
+			<Text>{data ? data : "No data available"}</Text>
+		</View>
+	);
 };
 
 const styles = StyleSheet.create({
-  center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  error: { color: 'red' }
+	center: { flex: 1, justifyContent: "center", alignItems: "center" },
+	error: { color: "red" },
 });
 
 export default DataFetcher;
