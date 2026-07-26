@@ -346,6 +346,8 @@ Now, later on we can set name to be a string.
 ```{.jsx}
 setName("Nikki")
 ```
+
+NOTE: there is no "integer" type, instead it's called "number" in typescript.
 :::
 
 ::: {.notes}
