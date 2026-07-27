@@ -120,7 +120,25 @@ Restart button
 TODO
 
 ## Programming an Arduino
-TODO
+Program Setup 
+    - void setup()
+        Where you can set your pins 
+        Runs once to configure your hardware
+    - void loop()
+        Main code that will run on loop 
+
+## Programming an Arduino- Assigning Pins
+pinMode() 
+digitalRead() 
+digitalWrite() 
+analogRead() 
+analogWrite() 
+
+Serial.begin()
+Serial.print()
+Serial.println()
+
+
 
 ## Number Representations
 
