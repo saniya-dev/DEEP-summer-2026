@@ -93,28 +93,35 @@ For example:
 - Can receive inputs and send outputs 
 
 ## Arduino
-3.3 and 5 volt
-- Provides power to circuit components and sensors 
-GND 
-- Reference point for current
-- Current returns here
-Analog Pins (A0-A5)
-- Can be set as inputs or outputs 
-- Used to read or send out signals 
-- Can read or simulate a continuous range of values
-## Arduino
-Digital Pins(0-13)
-- Can be set as inputs or outputs 
-- Used to read or send out signals 
-- Can only be on or off 
-- Pins with a ~ can also act as analog output 
-VIN 
-- Input voltage pin used to power the circuit form an external source
-USB port 
-- Used to upload code, power the board and communicate with computer 
-Restart button 
-- Restarts the arduino program for the beginning 
+- **3.3V and 5V Pins**
+  - Provide power to sensors and other circuit components
+  - Output a constant voltage of 3.3 V or 5 V
 
+- **GND (Ground)**
+  - Reference point for the circuit
+  - Provides the return path for current
+
+- **Analog Pins (A0–A5)**
+  - Can be configured as inputs or outputs
+  - Used to read sensor values or send digital signals
+  - Can read a continuous range of input values (`analogRead()`)
+## Arduino
+- **Digital Pins (0–13)**
+  - Can be set as inputs or outputs
+  - Used to read or send signals
+  - Can only be HIGH or LOW (on or off)
+  - Pins marked with `~` also support PWM (`analogWrite()`)
+
+- **VIN**
+  - Input voltage pin used to power the Arduino from an external source
+
+- **USB Port**
+  - Used to upload code
+  - Powers the board
+  - Enables communication with the computer
+
+- **Reset Button**
+  - Restarts the Arduino program from the beginning
 
 ## Circuits
 TODO
