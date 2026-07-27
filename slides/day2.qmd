@@ -128,15 +128,15 @@ Program Setup
         Main code that will run on loop 
 
 ## Programming an Arduino- Assigning Pins
-pinMode() 
-digitalRead() 
-digitalWrite() 
-analogRead() 
-analogWrite() 
+- `pinMode()`
+- `digitalRead()`
+- `digitalWrite()`
+- `analogRead()`
+- `analogWrite()`
 
-Serial.begin()
-Serial.print()
-Serial.println()
+- `Serial.begin()`
+- `Serial.print()`
+- `Serial.println()`
 
 
 
