@@ -93,6 +93,7 @@ For example:
 - Can receive inputs and send outputs 
 
 ## Arduino
+
 - **3.3V and 5V Pins**
   - Provide power to sensors and other circuit components
   - Output a constant voltage of 3.3 V or 5 V
@@ -101,17 +102,22 @@ For example:
   - Reference point for the circuit
   - Provides the return path for current
 
+---
+
+## Arduino
 - **Analog Pins (A0–A5)**
   - Can be configured as inputs or outputs
   - Used to read sensor values or send digital signals
   - Can read a continuous range of input values (`analogRead()`)
-## Arduino
+
 - **Digital Pins (0–13)**
   - Can be set as inputs or outputs
   - Used to read or send signals
   - Can only be HIGH or LOW (on or off)
   - Pins marked with `~` also support PWM (`analogWrite()`)
 
+---
+## Arduino
 - **VIN**
   - Input voltage pin used to power the Arduino from an external source
 
