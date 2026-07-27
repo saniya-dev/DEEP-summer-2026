@@ -89,7 +89,32 @@ For example:
     - Heart Rate Measurement Characteristic (0x2A37)
 
 ## Arduino
-TODO
+- Arduino is a microcontroller that allows you to control devices and process simple tasks 
+- Can receive inputs and send outputs 
+
+## Arduino
+3.3 and 5 volt
+- Provides power to circuit components and sensors 
+GND 
+- Reference point for current
+- Current returns here
+Analog Pins (A0-A5)
+- Can be set as inputs or outputs 
+- Used to read or send out signals 
+- Can read or simulate a continuous range of values
+## Arduino
+Digital Pins(0-13)
+- Can be set as inputs or outputs 
+- Used to read or send out signals 
+- Can only be on or off 
+- Pins with a ~ can also act as analog output 
+VIN 
+- Input voltage pin used to power the circuit form an external source
+USB port 
+- Used to upload code, power the board and communicate with computer 
+Restart button 
+- Restarts the arduino program for the beginning 
+
 
 ## Circuits
 TODO
