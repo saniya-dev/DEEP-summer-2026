@@ -92,14 +92,69 @@ For example:
 - Heart Rate Service (0x180D)
     - Heart Rate Measurement Characteristic (0x2A37)
 
+
 ## Arduino
-TODO
+- Arduino is a microcontroller that allows you to control devices and process simple tasks 
+- Can receive inputs and send outputs 
+
+## Arduino
+
+- **3.3V and 5V Pins**
+  - Provide power to sensors and other circuit components
+  - Output a constant voltage of 3.3 V or 5 V
+
+- **GND (Ground)**
+  - Reference point for the circuit
+  - Provides the return path for current
+
+---
+
+## Arduino
+- **Analog Pins (A0–A5)**
+  - Can be configured as inputs or outputs
+  - Used to read sensor values or send digital signals
+  - Can read a continuous range of input values (`analogRead()`)
+
+- **Digital Pins (0–13)**
+  - Can be set as inputs or outputs
+  - Used to read or send signals
+  - Can only be HIGH or LOW (on or off)
+  - Pins marked with `~` also support PWM (`analogWrite()`)
+
+---
+## Arduino
+- **VIN**
+  - Input voltage pin used to power the Arduino from an external source
+
+- **USB Port**
+  - Used to upload code
+  - Powers the board
+  - Enables communication with the computer
+
+- **Reset Button**
+  - Restarts the Arduino program from the beginning
 
 ## Circuits
 TODO
 
 ## Programming an Arduino
-TODO
+Program Setup 
+    - void setup()
+        Where you can set your pins 
+        Runs once to configure your hardware
+    - void loop()
+        Main code that will run on loop 
+
+## Programming an Arduino- Assigning Pins
+- `pinMode()`
+- `digitalRead()`
+- `digitalWrite()`
+- `analogRead()`
+- `analogWrite()`
+
+- `Serial.begin()`
+- `Serial.print()`
+- `Serial.println()`
 
 ## Number Representations
 
